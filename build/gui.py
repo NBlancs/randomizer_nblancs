@@ -10,7 +10,8 @@
 
 from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, Menu
-
+from controller import enterBtn,shuffleBtn,clearBtn,settingsBtn
+from model import Randomizer, GroupRandomizer,OutputGenerator,Preferences,ShuffleRandomizer, ResultDisplay
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\User\Desktop\Programming Files\OOP PIT\build\assets\frame0")
@@ -48,7 +49,7 @@ button_1 = Button(
     image=button_image_1,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("Enter Button Clicked"),
+    command= enterBtn, # Please Edit the method in controller.py
     relief="flat"
 )
 button_1.place(
@@ -151,7 +152,7 @@ button_2 = Button(
     image=button_image_2,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("Settings Button Clicked"),
+    command=settingsBtn, # Please Edit the method in controller.py
     relief="flat"
 )
 button_2.place(
@@ -215,7 +216,7 @@ button_4 = Button(
     image=button_image_4,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("Clear Button clicked"),
+    command=clearBtn, # Please Edit method in controller.py
     relief="flat"
 )
 button_4.place(
