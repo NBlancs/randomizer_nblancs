@@ -1,3 +1,3 @@
 # Randomizer Application Documentation
 
-[Link to PDF](Randomizer Proposal.pdf)
+[Link to PDF](Proposal.pdf)
