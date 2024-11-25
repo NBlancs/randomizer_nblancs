@@ -67,6 +67,7 @@ image_1 = canvas.create_image(
     image=image_image_1
 )
 
+# Text Area 1
 entry_image_1 = PhotoImage(
     file=relative_to_assets("entry_1.png"))
 entry_bg_1 = canvas.create_image(
@@ -87,6 +88,7 @@ entry_1.place(
     height=138.0
 )
 
+# Text Area 2
 entry_image_2 = PhotoImage(
     file=relative_to_assets("entry_2.png"))
 entry_bg_2 = canvas.create_image(
