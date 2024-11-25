@@ -1,3 +1,3 @@
 # Randomizer Application Documentation
 
-## [Link to PDF](path/to/your/file.pdf)
+## [Link to PDF](Randomizer Proposal.pdf)
