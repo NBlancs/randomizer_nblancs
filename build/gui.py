@@ -9,8 +9,7 @@
 
 
 from pathlib import Path
-
-from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
+from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, Menu
 
 
 OUTPUT_PATH = Path(__file__).parent
@@ -167,11 +166,17 @@ button_image_3 = PhotoImage(
 
 # Shuffle Button
 # Edit Here
+def open_shuffle_menu(event):
+    shuffle_menu = Menu(window, tearoff=0)
+    shuffle_menu.add_command(label="Single Output", command=lambda: print("Single Output selected"))
+    shuffle_menu.add_command(label="Multiple Output", command=lambda: print("Multiple Output selected"))
+    shuffle_menu.add_command(label="Group Output", command=lambda: print("Group Output selected"))
+    shuffle_menu.post(event.x_root, event.y_root)
+
 button_3 = Button(
     image=button_image_3,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("Shuffle Button Clicked"),
     relief="flat"
 )
 button_3.place(
@@ -180,6 +185,9 @@ button_3.place(
     width=180.0,
     height=50.0
 )
+
+# Bind the button click to show the dropdown menu
+button_3.bind("<Button-1>", open_shuffle_menu)
 
 canvas.create_text(
     323.0,
