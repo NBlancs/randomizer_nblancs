@@ -13,6 +13,8 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, Menu
 from controller import enterBtn,shuffleBtn,clearBtn,settingsBtn
 from model import Randomizer, GroupRandomizer,OutputGenerator,Preferences,ShuffleRandomizer, ResultDisplay
 
+
+# Please Change the asset path accordingly if you are accessing from a different device
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\User\Desktop\Programming Files\OOP PIT\build\assets\frame0")
 
