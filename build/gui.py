@@ -41,15 +41,15 @@ canvas.place(x = 0, y = 0)
 
 
 button_image_1 = PhotoImage(
-    file=relative_to_assets("button_1.png"))
+    file=relative_to_assets("button_4.png"))
 
-# Enter Button
+# Clear Button
 # Edit Here
 button_1 = Button(
     image=button_image_1,
     borderwidth=0,
     highlightthickness=0,
-    command= enterBtn, # Please Edit the method in controller.py
+    command= clearBtn, # Please Edit the method in controller.py
     relief="flat"
 )
 button_1.place(
@@ -208,7 +208,7 @@ image_4 = canvas.create_image(
 )
 
 button_image_4 = PhotoImage(
-    file=relative_to_assets("button_4.png"))
+    file=relative_to_assets("button_1.png"))
 
 # Clear Button
 # Edit Here
@@ -216,7 +216,7 @@ button_4 = Button(
     image=button_image_4,
     borderwidth=0,
     highlightthickness=0,
-    command=clearBtn, # Please Edit method in controller.py
+    command=enterBtn, # Please Edit method in controller.py
     relief="flat"
 )
 button_4.place(

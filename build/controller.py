@@ -3,7 +3,6 @@ from tkinter import Menu
 def enterBtn():
     print("Enter Button Clicked From controller")
 
-
 def shuffleBtn():
     print("Shuffle Button Clicked From controller")
 
