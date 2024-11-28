@@ -10,4 +10,4 @@ def settingsBtn():
     print("Settings Button Clicked from controller")
 
 def clearBtn():
-    print("Clear Button Clicked from controller")
+    ResultDisplay.clear_display()
