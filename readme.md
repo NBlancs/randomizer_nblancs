@@ -6,6 +6,8 @@
   #####  Week 2: Initial Implementation
   [Jupyter Notebook Link](https://jupyter.org/)
   
-  [View gui_randomizer.ipynb](gui_randomizer.ipynb)
-  [View model_randomizer.ipynb](model_randomizer.ipynb)
-  [View controller_randomizer.ipynb](controller_randomizer.ipynb)
+  [View gui_randomizer.ipynb](jupyternotebook/gui_randomizer.ipynb)
+  
+  [View model_randomizer.ipynb](jupyternotebook/model_randomizer.ipynb)
+  
+  [View controller_randomizer.ipynb](jupyternotebook/controller_randomizer.ipynb)
