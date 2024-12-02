@@ -211,13 +211,13 @@ image_4 = canvas.create_image(
 button_image_4 = PhotoImage(
     file=relative_to_assets("button_1.png"))
 
-# Clear Button
+# Enter Button
 # Edit Here
 button_4 = Button(
     image=button_image_4,
     borderwidth=0,
     highlightthickness=0,
-    command=enterBtn, # Please Edit method in controller.py
+    command=lambda: enterBtn(entry_1, entry_2), # Pass entry_1 and entry_2 to enterBtn
     relief="flat"
 )
 button_4.place(
