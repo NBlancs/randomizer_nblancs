@@ -9,8 +9,8 @@
 
 from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, Menu
-from controller import enterBtn,shuffleBtn,clearBtn,settingsBtn
-from model import Randomizer, GroupRandomizer,OutputGenerator,Preferences,ShuffleRandomizer, ResultDisplay
+from controller import enterBtn, shuffleBtn, clearBtn, settingsBtn
+from model import Randomizer, GroupRandomizer, OutputGenerator, Preferences, ShuffleRandomizer, ResultDisplay
 
 
 # Please Change the asset path accordingly if you are accessing from a different device
@@ -23,7 +23,6 @@ def relative_to_assets(path: str) -> Path:
 
 
 window = Tk()
-
 window.geometry("720x760")
 window.configure(bg = "#FFFFFF")
 
@@ -166,13 +165,17 @@ button_2.place(
 button_image_3 = PhotoImage(
     file=relative_to_assets("button_3.png"))
 
+# Function to update the shuffle option text
+def update_shuffle_option(option):
+    canvas.itemconfig(textSelectedOption, text=f"Shuffle Option: {option}")
+
 # Shuffle Button
 # Edit Here
 def open_shuffle_menu(event):
     shuffle_menu = Menu(window, tearoff=0)
-    shuffle_menu.add_command(label="Single Output", command=lambda: print("Single Output selected"))
-    shuffle_menu.add_command(label="Multiple Output", command=lambda: print("Multiple Output selected"))
-    shuffle_menu.add_command(label="Group Output", command=lambda: print("Group Output selected"))
+    shuffle_menu.add_command(label="Single Output", command=lambda: update_shuffle_option("Single Output"))
+    shuffle_menu.add_command(label="Multiple Output", command=lambda: update_shuffle_option("Multiple Output"))
+    shuffle_menu.add_command(label="Group Output", command=lambda: update_shuffle_option("Group Output"))
     shuffle_menu.post(event.x_root, event.y_root)
 
 button_3 = Button(
@@ -226,5 +229,16 @@ button_4.place(
     width=180.0,
     height=50.0
 )
+
+# Label text for shuffle
+textSelectedOption = canvas.create_text(
+    270.0,
+    360.0,
+    anchor="nw",
+    text="Shuffle Option: Single Output",  # Default value
+    fill="#000000",
+    font=("Inter", 14 * -1)
+)
+
 window.resizable(False, False)
 window.mainloop()
