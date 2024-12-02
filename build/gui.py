@@ -1,4 +1,3 @@
-
 # Notes:
     # Button 1 kay Enter Button
     # Button 2 kay Settings Button
@@ -51,7 +50,7 @@ button_1 = Button(
     image=button_image_1,
     borderwidth=0,
     highlightthickness=0,
-    command= clearBtn, # Please Edit the method in controller.py
+    command=lambda: clearBtn(entry_2),  # Pass entry_2 to clearBtn
     relief="flat"
 )
 button_1.place(
