@@ -3,9 +3,10 @@ import random
 
 # Base Class
 class Randomizer:
-    def __init__(self):
+    def __init__(self, allow_duplicates: bool = True):
         self.inputs: List[str | int] = []
         self.results: List[str | int] = []
+        self.allow_duplicates = allow_duplicates
 
     def add_input(self, input_data: str | int):
         """Adds a single input to the list."""
@@ -25,8 +26,8 @@ class Randomizer:
 
 # Subclass: GroupRandomizer
 class GroupRandomizer(Randomizer):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, allow_duplicates: bool = True):
+        super().__init__(allow_duplicates)
         self.group_size: int = 0
         self.number_of_groups: int = 0
 
@@ -40,11 +41,14 @@ class GroupRandomizer(Randomizer):
 
     def generate_groups(self) -> List[List[str | int]]:
         """Randomly divides inputs into groups based on group_size or number_of_groups."""
-        random.shuffle(self.inputs)
+        items = self.inputs[:]
+        if not self.allow_duplicates:
+            items = list(set(items))
+        random.shuffle(items)
         if self.group_size > 0:
-            self.results = [self.inputs[i:i + self.group_size] for i in range(0, len(self.inputs), self.group_size)]
+            self.results = [items[i:i + self.group_size] for i in range(0, len(items), self.group_size)]
         elif self.number_of_groups > 0:
-            self.results = [self.inputs[i::self.number_of_groups] for i in range(self.number_of_groups)]
+            self.results = [items[i::self.number_of_groups] for i in range(self.number_of_groups)]
         else:
             self.results = []
         return self.results
@@ -53,8 +57,11 @@ class GroupRandomizer(Randomizer):
 class ShuffleRandomizer(Randomizer):
     def shuffle_items(self) -> List[str | int]:
         """Randomly shuffles the order of the inputs and updates results."""
-        self.results = self.inputs[:]
-        random.shuffle(self.results)
+        items = self.inputs[:]
+        if not self.allow_duplicates:
+            items = list(set(items))
+        random.shuffle(items)
+        self.results = items
         return self.results
 
 # Subclass: OutputGenerator

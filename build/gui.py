@@ -6,26 +6,22 @@
         # Add options (Single Output, Multiple Output, Group Output)
     # Button 4 kay Clear Button
 
-
+# gui.py
 from pathlib import Path
-from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, Menu
-from controller import enterBtn, shuffleBtn, clearBtn, settingsBtn
-from model import Randomizer, GroupRandomizer, OutputGenerator, Preferences, ShuffleRandomizer, ResultDisplay
+from tkinter import Tk, Canvas, Text, Button, PhotoImage, Menu, Toplevel, Label, Entry, BooleanVar
+from controller import enterBtn, clearBtn, settingsBtn, preferences
+from model import GroupRandomizer, Preferences, ShuffleRandomizer
 
-
-# Please Change the asset path accordingly if you are accessing from a different device
+# Please change the asset path accordingly
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\User\Desktop\Programming Files\OOP PIT\build\assets\frame0")
-
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-
 window = Tk()
 window.geometry("720x760")
 window.configure(bg = "#FFFFFF")
-
 
 canvas = Canvas(
     window,
@@ -36,15 +32,12 @@ canvas = Canvas(
     highlightthickness = 0,
     relief = "ridge"
 )
-
 canvas.place(x = 0, y = 0)
-
 
 button_image_1 = PhotoImage(
     file=relative_to_assets("button_4.png"))
 
 # Clear Button
-# Edit Here
 button_1 = Button(
     image=button_image_1,
     borderwidth=0,
@@ -147,12 +140,11 @@ button_image_2 = PhotoImage(
     file=relative_to_assets("button_2.png"))
 
 # Settings Button
-# Edit Here
 button_2 = Button(
     image=button_image_2,
     borderwidth=0,
     highlightthickness=0,
-    command=settingsBtn, # Please Edit the method in controller.py
+    command=lambda: settingsBtn(window), # Please Edit the method in controller.py
     relief="flat"
 )
 button_2.place(
@@ -173,9 +165,10 @@ def update_shuffle_option(option):
     global selected_shuffle_option
     selected_shuffle_option = option
     canvas.itemconfig(textSelectedOption, text=f"Shuffle Option: {option}")
+    if option == "Group Output":
+        open_group_window()
 
 # Shuffle Button
-# Edit Here
 def open_shuffle_menu(event):
     shuffle_menu = Menu(window, tearoff=0)
     shuffle_menu.add_command(label="Single Output", command=lambda: update_shuffle_option("Single Output"))
@@ -220,12 +213,11 @@ button_image_4 = PhotoImage(
     file=relative_to_assets("button_1.png"))
 
 # Enter Button
-# Edit Here
 button_4 = Button(
     image=button_image_4,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: enterBtn(entry_1, entry_2, selected_shuffle_option), # Pass entry_1, entry_2, and selected_shuffle_option to enterBtn
+    command=lambda: enterBtn(entry_1, entry_2, selected_shuffle_option, preferences.allow_duplicates), # Pass entry_1, entry_2, and selected_shuffle_option to enterBtn
     relief="flat"
 )
 button_4.place(
@@ -244,6 +236,37 @@ textSelectedOption = canvas.create_text(
     fill="#000000",
     font=("Inter", 14 * -1)
 )
+
+# must transfer this to a different file view later after debugging and stuff
+def open_group_window():
+    group_window = Toplevel(window)
+    group_window.title("Group Output Settings")
+    group_window.geometry("300x200")
+    group_window.configure(bg="#FFFFFF")
+
+    window_width = window.winfo_width()
+    window_height = window.winfo_height()
+    group_window_width = 300
+    group_window_height = 200
+    position_right = int(window.winfo_x() + (window_width / 2) - (group_window_width / 2))
+    position_down = int(window.winfo_y() + (window_height / 2) - (window_height / 2))
+    group_window.geometry(f"{group_window_width}x{group_window_height}+{position_right}+{position_down}")
+
+    Label(group_window, text="Number of Groups:", bg="#FFFFFF").pack(pady=5)
+    group_count_entry = Entry(group_window)
+    group_count_entry.pack(pady=5)
+
+    Label(group_window, text="Elements per Group:", bg="#FFFFFF").pack(pady=5)
+    group_size_entry = Entry(group_window)
+    group_size_entry.pack(pady=5)
+
+    def apply_group_constraints():
+        group_size = int(group_size_entry.get())
+        number_of_groups = int(group_count_entry.get())
+        enterBtn(entry_1, entry_2, "Group Output", preferences.allow_duplicates, group_size, number_of_groups)
+        group_window.destroy()
+
+    Button(group_window, text="Enter", command=apply_group_constraints).pack(pady=10)
 
 window.resizable(False, False)
 window.mainloop()
