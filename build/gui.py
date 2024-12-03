@@ -165,8 +165,13 @@ button_2.place(
 button_image_3 = PhotoImage(
     file=relative_to_assets("button_3.png"))
 
+# Global variable to store the selected shuffle option
+selected_shuffle_option = "Single Output"
+
 # Function to update the shuffle option text
 def update_shuffle_option(option):
+    global selected_shuffle_option
+    selected_shuffle_option = option
     canvas.itemconfig(textSelectedOption, text=f"Shuffle Option: {option}")
 
 # Shuffle Button
@@ -220,7 +225,7 @@ button_4 = Button(
     image=button_image_4,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: enterBtn(entry_1, entry_2), # Pass entry_1 and entry_2 to enterBtn
+    command=lambda: enterBtn(entry_1, entry_2, selected_shuffle_option), # Pass entry_1, entry_2, and selected_shuffle_option to enterBtn
     relief="flat"
 )
 button_4.place(
