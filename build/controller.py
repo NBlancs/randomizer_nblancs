@@ -68,8 +68,9 @@ def settingsBtn(main_window):
     back_button = Button(settings_window, text="Back", command=go_back)
     back_button.pack(pady=10)
 
-def clear_text_area(entry: Text):
+def clear_text_area(entry: Text, entry1: Text):
     entry.delete('1.0', 'end')
+    entry1.delete('1.0', 'end')
 
-def clearBtn(entry: Text):
-    clear_text_area(entry)
+def clearBtn(entry: Text, entry1: Text):
+    clear_text_area(entry, entry1)

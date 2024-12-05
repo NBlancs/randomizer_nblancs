@@ -42,7 +42,7 @@ button_1 = Button(
     image=button_image_1,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: clearBtn(entry_2),  # Pass entry_2 to clearBtn
+    command=lambda: clearBtn(entry_2, entry_1),  # Clears entry_1 and entry_2
     relief="flat"
 )
 button_1.place(
