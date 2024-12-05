@@ -12,3 +12,6 @@
   - [View model_randomizer.ipynb](jupyternotebook/model_randomizer.ipynb)
   
   - [View controller_randomizer.ipynb](jupyternotebook/controller_randomizer.ipynb)
+
+  ###  Week 3: Advanced Implementation and Testing
+
