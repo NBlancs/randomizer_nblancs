@@ -9,12 +9,12 @@
 # gui.py
 from pathlib import Path
 from tkinter import Tk, Canvas, Text, Button, PhotoImage, Menu, Toplevel, Label, Entry, BooleanVar
-from controller import enterBtn, clearBtn, settingsBtn, preferences
-from model import GroupRandomizer, Preferences, ShuffleRandomizer
+from randomizer.controller import enterBtn, clearBtn, settingsBtn, preferences
+from randomizer.model import GroupRandomizer, Preferences, ShuffleRandomizer
 
 # Please change the asset path accordingly
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\User\Desktop\Programming Files\OOP PIT\build\assets\frame0")
+ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\User\Desktop\Programming Files\randomizer_nblancs\build\assets\frame0")
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
