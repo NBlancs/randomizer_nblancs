@@ -1,5 +1,5 @@
 # controller.py
-from model import ShuffleRandomizer, GroupRandomizer, Preferences
+from .model import ShuffleRandomizer, GroupRandomizer, Preferences
 from tkinter import Text, Toplevel, Label, Entry, Button, Checkbutton, BooleanVar
 
 # Initialize preferences
