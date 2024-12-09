@@ -64,6 +64,14 @@ class ShuffleRandomizer(Randomizer):
         self.results = items
         return self.results
 
+    def pick_single_item(self) -> str | int:
+        """Randomly picks a single item from the inputs."""
+        items = self.inputs[:]
+        if not self.allow_duplicates:
+            items = list(set(items))
+        self.results = [random.choice(items)]
+        return self.results[0]
+
 # Subclass: OutputGenerator
 class OutputGenerator(Randomizer):
     def __init__(self):

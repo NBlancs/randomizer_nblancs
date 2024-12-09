@@ -22,6 +22,7 @@ def relative_to_assets(path: str) -> Path:
 window = Tk()
 window.geometry("720x760")
 window.configure(bg = "#FFFFFF")
+window.title("Randomizer")
 
 canvas = Canvas(
     window,
@@ -174,6 +175,7 @@ def open_shuffle_menu(event):
     shuffle_menu.add_command(label="Single Output", command=lambda: update_shuffle_option("Single Output"))
     shuffle_menu.add_command(label="Multiple Output", command=lambda: update_shuffle_option("Multiple Output"))
     shuffle_menu.add_command(label="Group Output", command=lambda: update_shuffle_option("Group Output"))
+    shuffle_menu.add_command(label="Single Picker", command=lambda: update_shuffle_option("Single Picker"))
     shuffle_menu.post(event.x_root, event.y_root)
 
 button_3 = Button(
@@ -217,7 +219,7 @@ button_4 = Button(
     image=button_image_4,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: enterBtn(entry_1, entry_2, selected_shuffle_option, preferences.allow_duplicates), # Pass entry_1, entry_2, and selected_shuffle_option to enterBtn
+    command=lambda: (update_shuffle_option(selected_shuffle_option), enterBtn(entry_1, entry_2, selected_shuffle_option, preferences.allow_duplicates)), # Pass entry_1, entry_2, and selected_shuffle_option to enterBtn
     relief="flat"
 )
 button_4.place(
@@ -237,7 +239,6 @@ textSelectedOption = canvas.create_text(
     font=("Inter", 14 * -1)
 )
 
-# must transfer this to a different file view later after debugging and stuff
 def open_group_window():
     group_window = Toplevel(window)
     group_window.title("Group Output Settings")

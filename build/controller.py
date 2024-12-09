@@ -30,6 +30,12 @@ def enterBtn(entry_1: Text, entry_2: Text, shuffle_option: str, allow_duplicates
         results = [", ".join(map(str, group)) for group in results]
         entry_2.delete("1.0", "end")
         entry_2.insert("1.0", "\n".join(results))
+    elif shuffle_option == "Single Picker":
+        randomizer = ShuffleRandomizer(allow_duplicates=allow_duplicates)
+        randomizer.add_inputs(inputs)
+        result = randomizer.pick_single_item()
+        entry_2.delete("1.0", "end")
+        entry_2.insert("1.0", str(result))
     else:
         randomizer = ShuffleRandomizer(allow_duplicates=allow_duplicates)
         randomizer.add_inputs(inputs)
