@@ -14,7 +14,7 @@
   - [View controller_randomizer.ipynb](jupyternotebook/controller_randomizer.ipynb)
 
   ###  Week 3: Advanced Implementation and Testing
-  [PyPi Randomizer Package Link](https://pypi.org/project/randomizer-package/?fbclid=IwZXh0bgNhZW0CMTEAAR2gl4Z5auW_oPWOH_0WnIHpsXK30alrPKuYzVtwr6HA--cy9Q7Itp5MMkc_aem_P_Y58LT1prLyfQJrbA0hbw)
+  [PyPi Randomizer Package Link](https://pypi.org/project/randomizer-package/)
 
 
   ### Week 4: Final Testing, Debugging, and Documentation
