@@ -1,4 +1,4 @@
-## Randomizer Application Documentation
+## Randomizer Application Deliverables
   ###  Week 1: Planning and Design
   ##### Includes: Task Description and Features, Class Hierarchy and Methods, UI Layout and Functionalities, UML Diagram
   [Randomizer Application Proposal](Proposal.pdf)
