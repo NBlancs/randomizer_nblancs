@@ -6,7 +6,6 @@
         # Add options (Single Output, Multiple Output, Group Output)
     # Button 4 kay Clear Button
 
-# gui.py
 from pathlib import Path
 from tkinter import Tk, Canvas, Text, Button, PhotoImage, Menu, Toplevel, Label, Entry, BooleanVar
 from randomizer.controller import enterBtn, clearBtn, settingsBtn, preferences
@@ -20,6 +19,9 @@ def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
 def main():
+    global selected_shuffle_option
+    selected_shuffle_option = "Single Output"
+
     window = Tk()
     window.geometry("720x760")
     window.configure(bg = "#FFFFFF")
@@ -159,9 +161,6 @@ def main():
     button_image_3 = PhotoImage(
         file=relative_to_assets("button_3.png"))
 
-    # Global variable to store the selected shuffle option
-    selected_shuffle_option = "Single Output"
-
     # Function to update the shuffle option text
     def update_shuffle_option(option):
         global selected_shuffle_option
@@ -220,7 +219,7 @@ def main():
         image=button_image_4,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: (update_shuffle_option(selected_shuffle_option), enterBtn(entry_1, entry_2, selected_shuffle_option, preferences.allow_duplicates)), # Pass entry_1, entry_2, and selected_shuffle_option to enterBtn
+        command=lambda: open_group_window() if selected_shuffle_option == "Group Output" else enterBtn(entry_1, entry_2, selected_shuffle_option, preferences.allow_duplicates), # Open group window if Group Output is selected
         relief="flat"
     )
     button_4.place(

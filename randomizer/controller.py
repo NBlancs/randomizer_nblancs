@@ -7,7 +7,12 @@ preferences = Preferences()
 
 def enterBtn(entry_1: Text, entry_2: Text, shuffle_option: str, allow_duplicates: bool = True, group_size: int = None, number_of_groups: int = None):
     # Get input from entry_1
-    input_text = entry_1.get("1.0", "end-1c")
+    input_text = entry_1.get("1.0", "end-1c").strip()
+    if not input_text:
+        entry_2.delete("1.0", "end")
+        entry_2.insert("1.0", "Error: Input is empty.")
+        return
+
     # Split input by commas and remove any extra whitespace
     inputs = [item.strip() for item in input_text.split(",") if item.strip()]
     
@@ -33,9 +38,13 @@ def enterBtn(entry_1: Text, entry_2: Text, shuffle_option: str, allow_duplicates
     elif shuffle_option == "Single Picker":
         randomizer = ShuffleRandomizer(allow_duplicates=allow_duplicates)
         randomizer.add_inputs(inputs)
-        result = randomizer.pick_single_item()
-        entry_2.delete("1.0", "end")
-        entry_2.insert("1.0", str(result))
+        try:
+            result = randomizer.pick_single_item()
+            entry_2.delete("1.0", "end")
+            entry_2.insert("1.0", str(result))
+        except IndexError:
+            entry_2.delete("1.0", "end")
+            entry_2.insert("1.0", "Error: No items to pick from.")
     else:
         randomizer = ShuffleRandomizer(allow_duplicates=allow_duplicates)
         randomizer.add_inputs(inputs)
