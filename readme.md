@@ -51,32 +51,9 @@ When the **SHUFFLE BUTTON** is clicked, it will display a dropdown menu with sev
  field to be use again in the next task
 
   ***
-  #### Main Frame
-  ![default](doc_imgs/default.png)
+  ## Application Demonstration
+  ![app_demo](doc_imgs/application_demo.gif)
   ***
 
-  #### Single Output
-  ![single_output](doc_imgs/single_output.png)
-  ***
-
-  #### Single Picker
-  ![single_picker](doc_imgs/single_picker.png)
-  ***
-
-  #### Multiple Output
-  ![single_picker](doc_imgs/multiple_output.png)
-  ***
-
-  #### Group Output - Groups Windows
-  ![single_picker](doc_imgs/group_output_group_window.png)
-  ***
-
-  #### Group Output
-  ![single_picker](doc_imgs/group_output.png)
-  ***
-
-  #### Settings Window
-  ![single_picker](doc_imgs/settings.png)
-  ***
-
+ 
   
