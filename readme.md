@@ -1,6 +1,6 @@
 # Randomizer Application Documentation
 
-## How to install and run the Randomizer Package
+## 💻 How to install and run the Randomizer Package
   #### 1. Go to [Randomizer Package Link](https://pypi.org/project/randomizer-package/0.4.0/#description)
   ***
   #### 2. Go to terminal and run this command.
@@ -20,7 +20,7 @@
 
 ---
 
-## UI Layout and Button Function Explanations
+## 💁 UI Layout and Button Function Explanations
   #### Button Function Explanation
 The **INPUT USER** field is designed for user input. 
 ***
@@ -51,9 +51,14 @@ When the **SHUFFLE BUTTON** is clicked, it will display a dropdown menu with sev
  field to be use again in the next task
 
   ***
-  ## Application Demonstration
+  ## 💻 Application Demonstration
   ![app_demo](doc_imgs/application_demo.gif)
   ***
+
+  ## 🛡️LICENSE
+  Project is distributed under [MIT License](LICENSE)
+
+
 
  
   
