@@ -13,7 +13,7 @@ from randomizer.model import GroupRandomizer, Preferences, ShuffleRandomizer
 
 # Please change the asset path accordingly
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\User\Desktop\Programming Files\randomizer_nblancs\build\assets\frame0")
+ASSETS_PATH = OUTPUT_PATH / "assets" / "frame0"
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
@@ -219,7 +219,7 @@ def main():
         image=button_image_4,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: open_group_window() if selected_shuffle_option == "Group Output" else enterBtn(entry_1, entry_2, selected_shuffle_option, preferences.allow_duplicates), # Open group window if Group Output is selected
+        command=lambda: enterBtn(entry_1, entry_2, selected_shuffle_option, preferences.allow_duplicates), # Pass entry_1, entry_2, and selected_shuffle_option to enterBtn
         relief="flat"
     )
     button_4.place(
