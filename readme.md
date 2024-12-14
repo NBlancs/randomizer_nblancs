@@ -1,6 +1,6 @@
 # Randomizer Application Documentation
 
-## 💻 How to install and run the Randomizer Package
+## 💻📦 How to install and run the Randomizer Package
   #### 1. Go to [Randomizer Package Link](https://pypi.org/project/randomizer-package/0.4.0/#description)
   ***
   #### 2. Go to terminal and run this command.
