@@ -3,7 +3,7 @@
     Note: If you want to clone this repository and run from your respective code editor or 
     IDE make sure you have installed the package first.
 ## 💻📦 How to install and run the Randomizer Package
-  #### 1. Go to PyPi [Randomizer Package Link](https://pypi.org/project/randomizer-package/0.4.0/#description)
+  #### 1. Go to PyPi [Randomizer Package Link](https://pypi.org/project/randomizer-package/)
   ***
   #### 2. Go to terminal and run this command.
     pip install randomizer-package
